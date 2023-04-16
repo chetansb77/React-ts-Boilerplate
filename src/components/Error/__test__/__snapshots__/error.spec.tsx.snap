@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`error component renders correctly 1`] = `
+<div
+  className="error-component text-center"
+>
+  <div>
+    <img
+      alt="something-wrong"
+      aria-hidden="true"
+      className="image-center cursor-pointer"
+      onClick={[Function]}
+      src=""
+      title="Show error"
+    />
+  </div>
+  <div
+    className="flex justify-center mt-2"
+  >
+    <div
+      className="flex-initial w-72"
+    >
+      <span
+        className="message"
+      >
+        Ooops!! Something went wrong
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`error component renders correctly when no error message 1`] = `
+<div
+  className="error-component text-center"
+>
+  <div>
+    <img
+      alt="something-wrong"
+      aria-hidden="true"
+      className="image-center cursor-pointer"
+      onClick={[Function]}
+      src=""
+      title="Show error"
+    />
+  </div>
+  <div
+    className="flex justify-center mt-2"
+  >
+    <div
+      className="flex-initial w-72"
+    >
+      <span
+        className="message"
+      >
+        Ooops!! Something went wrong
+      </span>
+    </div>
+  </div>
+</div>
+`;
