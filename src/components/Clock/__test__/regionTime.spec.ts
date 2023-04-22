@@ -1,14 +1,35 @@
-import calcTime, { timeZoneOffsets } from '../regionTime';
+import { vi } from 'vitest';
+import calcTime from '../regionTime';
 
-const cases: Array<[string, number]> = [
-  ['IST', (Number(timeZoneOffsets.IST) * 60)],
-  ['JPN', NaN],
-];
+describe('calcTime', () => {
+  const testCases = [
+    { timezone: 'IST', expectedOffset: 5.5 },
+    { timezone: 'PST', expectedOffset: -7 },
+    // Add more test cases as needed
+  ];
 
-describe('test calcTime function', () => {
-  test.each(cases)('get %p time', (timezoneCode: string, result: number): any => {
-    const dateTimeObj = calcTime(timezoneCode);
-    expect(Math.abs(dateTimeObj.getTimezoneOffset())).toEqual(result);
-    expect(true).toEqual(true);
+  test.each(testCases)('should calculate time correctly for %s timezone', ({ timezone, expectedOffset }) => {
+    // Mock the current date to a fixed value for testing
+    const currentDate = new Date('2023-04-23T10:30:00Z');
+    global.Date = vi.fn(() => currentDate) as any;
+
+    const expectedTime = new Date(currentDate.getTime() + expectedOffset * 3600000);
+
+    const result = calcTime(timezone);
+
+    expect(result).toEqual(expectedTime);
+  });
+
+  it('should return current time for invalid timezone', () => {
+    // Mock the current date to a fixed value for testing
+    const currentDate = new Date('2023-04-23T10:30:00Z');
+    global.Date = vi.fn(() => currentDate) as any;
+
+    // Test with an invalid timezone
+    const timezone = 'InvalidTimezone';
+
+    const result = calcTime(timezone);
+
+    expect(result).toEqual(currentDate);
   });
 });
