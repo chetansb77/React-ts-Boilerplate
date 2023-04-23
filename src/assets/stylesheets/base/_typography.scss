@@ -1,0 +1,56 @@
+/**
+ * Basic typography style for copy text
+ */
+
+$bold: 700;
+$semibold: 600;
+$regular: 400;
+
+@mixin elementStyle($element, $isImportant: false){
+  font-style: normal;
+
+  @if ($element == 'h1') {
+    font-weight: $bold + if($isImportant, !important, null);
+    font-size: 60px + if($isImportant, !important, null);
+    line-height: 72px + if($isImportant, !important, null);
+  }
+
+  @if ($element == 'h2') {
+    font-weight: $bold + if($isImportant, !important, null);
+    font-size: 48px + if($isImportant, !important, null);
+    line-height: 64px + if($isImportant, !important, null);
+  }
+
+  @if ($element == 'h3') {
+    font-weight: $semibold + if($isImportant, !important, null);
+    font-size: 40px + if($isImportant, !important, null);
+    line-height: 48px + if($isImportant, !important, null);
+  }
+
+  @if ($element == 'h4') {
+    font-weight: $regular + if($isImportant, !important, null);
+    font-size: 28px + if($isImportant, !important, null);
+    line-height: 40px + if($isImportant, !important, null);
+  }
+
+  @if ($element == 'h5') {
+    font-weight: $bold + if($isImportant, !important, null);
+    font-size: 20px + if($isImportant, !important, null);
+    line-height: 28px + if($isImportant, !important, null);
+  }
+
+  @if ($element == 'p') {
+    font-size: 18px + if($isImportant, !important, null);
+    line-height: 28px + if($isImportant, !important, null);
+  }
+
+  @if ($element == 'sp') {
+    font-size: 16px + if($isImportant, !important, null);
+    line-height: 24px + if($isImportant, !important, null);
+  }
+
+  @if ($element == 'img') {
+    height: 50px + if($isImportant, !important, null);
+    line-height: 24px + if($isImportant, !important, null);
+  }
+}
